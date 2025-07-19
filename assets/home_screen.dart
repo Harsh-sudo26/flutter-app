@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
     {
       'title': 'Shop the latest laptop trends',
       'image': laptop,
-      // 'background': const Color.fromARGB(179, 142, 30, 30),
+      'background': const Color.fromARGB(179, 142, 30, 30),
     },
     {
       'title': 'Discover new smartphones',
@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
     },
     {
       'title': 'Upgrade to high-performance laptops',
-      'image': omen,
+      'image': laptop,
       'background': const Color.fromARGB(255, 73, 38, 133),
     },
     // Add more items here if needed
@@ -69,33 +69,24 @@ class HomeScreen extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(vertical: 8),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
-                    gradient: LinearGradient(
-                      colors: [
-                        Colors.blue,
-                        const Color.fromARGB(255, 71, 98, 205),
-                      ],
-                    ),
+                    color: item['background'],
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            item['title'],
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 230, 230, 230),
-                            ),
-                          ),
+                  child: Center(
+                    child: ListTile(
+                      contentPadding: const EdgeInsets.all(20),
+                      title: Text(
+                        item['title'],
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 230, 230, 230),
                         ),
-                        SizedBox(
-                          height: 100,
-                          width: 120,
-                          child: Image.asset(item['image'], fit: BoxFit.cover),
-                        ),
-                      ],
+                      ),
+                      trailing: Image.asset(
+                        item['image'],
+                        height: 100,
+                        fit: BoxFit.contain,
+                      ),
                     ),
                   ),
                 );
